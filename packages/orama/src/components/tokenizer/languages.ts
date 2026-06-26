@@ -28,6 +28,7 @@ export const STEMMERS: Record<string, string> = {
   tamil: 'ta',
   turkish: 'tr',
   ukrainian: 'uk',
+  vietnamese: 'vi',
   sanskrit: 'sk'
 }
 
@@ -61,6 +62,7 @@ export const SPLITTERS: Record<Language, RegExp> = {
   bulgarian: /[^a-z0-9а-яА-Я]+/gim,
   tamil: /[^a-z0-9அ-ஹ]+/gim,
   sanskrit: /[^a-z0-9A-Zāīūṛḷṃṁḥśṣṭḍṇṅñḻḹṝ]+/gim,
+  vietnamese: /[^a-z0-9A-ZáàảãạăắằẳẵặâấầẩẫậéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵđÁÀẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÉÈẺẼẸÊẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÚÙỦŨỤƯỨỪỬỮỰÝỲỶỸỴĐ_]+/gim,
   czech: /[^A-Z0-9a-zěščřžýáíéúůóťďĚŠČŘŽÝÁÍÉÓÚŮŤĎ-]+/gim
 }
 
@@ -71,3 +73,8 @@ export function getLocale(language: string | undefined) {
 }
 
 export type Language = (typeof SUPPORTED_LANGUAGES)[number]
+
+// Languages whose diacritics are semantically significant (e.g. Vietnamese tone marks).
+// Their tokens must not be folded to ASCII during tokenization, otherwise distinct
+// words collapse together (e.g. "tài" -> "tai") and search quality breaks.
+export const LANGUAGES_WITH_SIGNIFICANT_DIACRITICS = new Set<Language>(['vietnamese'])
