@@ -3,7 +3,9 @@
   <img src="https://raw.githubusercontent.com/oramasearch/orama/refs/heads/main/misc/readme/orama-readme-hero-light.png#gh-light-mode-only" />
 </p>
 
+[![npm version](https://img.shields.io/npm/v/@orama/orama)](https://www.npmjs.com/package/@orama/orama)
 [![Tests](https://github.com/oramasearch/orama/actions/workflows/turbo.yml/badge.svg)](https://github.com/oramasearch/orama/actions/workflows/turbo.yml)
+[![Changelog](https://img.shields.io/badge/changelog-Keep%20a%20Changelog-E05735)](https://github.com/oramasearch/orama/blob/main/CHANGELOG.md)
 
 If you need more info, help, or want to provide general feedback on Orama, join the [Orama Slack channel](https://orama.to/slack)
 
